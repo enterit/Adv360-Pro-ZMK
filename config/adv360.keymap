@@ -31,7 +31,7 @@
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
     /* flavor = "tap-unless-interrupted"; */
-    tapping-term-ms = <280>;
+    tapping-term-ms = <500>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
     require-prior-idle-ms = <15>;
     bindings = <&kp>, <&kp>;
@@ -43,7 +43,7 @@ ZMK_HOLD_TAP(hml,
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
     /* flavor = "tap-unless-interrupted"; */
-    tapping-term-ms = <280>;
+    tapping-term-ms = <500>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
     require-prior-idle-ms = <15>;
     bindings = <&kp>, <&kp>;
