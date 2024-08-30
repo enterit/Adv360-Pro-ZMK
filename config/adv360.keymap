@@ -63,6 +63,9 @@ ZMK_HOLD_TAP(hmr,
 
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
+#define HSK_LG_LCTRL &ho_sk LGUI LG(LCTRL)
+#define HSK_LG_RCTRL &ho_sk LGUI LG(RCTRL)
+
 / {
   behaviors {
     #include "macros.dtsi"
@@ -84,6 +87,13 @@ ZMK_HOLD_TAP(hmr,
         tapping-term-ms = <200>;
         bindings = <&mo>, <&tog>;
     };
+    ho_sk: behavior_hold_sticky {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        bindings = <&kp>, <&sk>;
+    };
   };
 
     keymap {
@@ -92,11 +102,11 @@ ZMK_HOLD_TAP(hmr,
 
         default_layer {
             bindings = <
-  &kp EQUAL     &kp N1    &kp N2    &kp N3     &kp N4  &kp N5              &tog 1                                                                 &mo 3  &kp N6    &kp N7     &kp N8    &kp N9    &kp N0   &kp MINUS
-    &kp TAB      &kp Q     &kp W     &kp E      &kp R   &kp T               &none                                                                 &none   &kp Y     &kp U      &kp I     &kp O     &kp P    &kp BSLH
-    &kp ESC     A_LALT    S_LGUI   D_LCTRL    F_LSHFT   &kp G               &none  &kp LCTRL  &kp LALT                   &kp LGUI  &kp RCTRL      &none   &kp H   J_RSHFT    K_RCTRL    L_RGUI SEMI_RALT     &kp SQT
-  &kp LSHFT      &kp Z     &kp X     &kp C      &kp V   &kp B                                 &kp HOME                  &kp PG_UP                         &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH   &kp RSHFT
-&mo_tog 2 2  &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT                    &kp BSPC    &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &kp SPACE          &kp DOWN     &kp UP  &kp LBKT  &kp RBKT &mo_tog 2 2
+  &kp EQUAL     &kp N1    &kp N2    &kp N3     &kp N4  &kp N5              &tog 1                                                                    &mo 3  &kp N6    &kp N7     &kp N8    &kp N9    &kp N0   &kp MINUS
+    &kp TAB      &kp Q     &kp W     &kp E      &kp R   &kp T               &none                                                                    &none   &kp Y     &kp U      &kp I     &kp O     &kp P    &kp BSLH
+    &kp ESC     A_LALT    S_LGUI   D_LCTRL    F_LSHFT   &kp G        HSK_LG_LCTRL  &kp LCTRL  &kp LALT                   &kp LGUI  &kp RCTRL  HSK_LG_RCTRL   &kp H   J_RSHFT    K_RCTRL    L_RGUI SEMI_RALT     &kp SQT
+  &kp LSHFT      &kp Z     &kp X     &kp C      &kp V   &kp B                                 &kp HOME                  &kp PG_UP                            &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH   &kp RSHFT
+&mo_tog 2 2  &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT                    &kp BSPC    &kp DEL   &kp END                  &kp PG_DN  &kp ENTER     &kp SPACE          &kp DOWN     &kp UP  &kp LBKT  &kp RBKT &mo_tog 2 2
             >;
         };
 
