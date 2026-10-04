@@ -102,8 +102,8 @@ ZMK_HOLD_TAP(hmr,
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <0>;
-        tap-ms = <0>;
-        bindings = <&macro_press &kp F17>, <&macro_wait_time 30>, <&macro_release &kp F17>;
+        tap-ms = <30>;                 // F17 held 30 ms: a 0 ms press/release of F17 never reached the host
+        bindings = <&macro_tap &kp F17>;
     };
     voice_tap_wrap: voice_tap_wrap {   // hold-tap needs a 1-param binding; drop the param
         compatible = "zmk,behavior-hold-tap";
