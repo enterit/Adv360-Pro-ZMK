@@ -66,7 +66,7 @@ ZMK_HOLD_TAP(hmr,
 #define HSK_LG_LCTRL &ho_sk LGUI LG(LCTRL)
 #define HSK_LG_RCTRL &ho_sk LGUI LG(RCTRL)
 
-// Key (1) = voice key. Tap sends F17, hold (>200 ms) sends F18 until release. The keys carry
+// Key (1) = voice key. Tap sends F17 (held 30 ms), hold (>280 ms) sends F18 until release. The keys carry
 // no meaning here; the laptop binds them (Whispering: F17 toggle, F18 push-to-talk).
 #define VOICE_KEY &voice_tap_wrap F18 0   // tap binding = &voice_tap macro (param ignored)
 
@@ -109,7 +109,7 @@ ZMK_HOLD_TAP(hmr,
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "hold-preferred";
-        tapping-term-ms = <200>;
+        tapping-term-ms = <280>;   // same as the home-row mods; a 204 ms tap read as a hold at 200
         bindings = <&kp>, <&voice_tap>;
     };
   };
@@ -121,7 +121,7 @@ ZMK_HOLD_TAP(hmr,
         default_layer {
             bindings = <
   &kp EQUAL     &kp N1    &kp N2    &kp N3     &kp N4  &kp N5              &tog 1                                                                    &mo 3  &kp N6    &kp N7     &kp N8    &kp N9    &kp N0   &kp MINUS
-    &kp TAB      &kp Q     &kp W     &kp E      &kp R   &kp T               VOICE_KEY                                                                    &kp F17   &kp Y     &kp U      &kp I     &kp O     &kp P    &kp BSLH
+    &kp TAB      &kp Q     &kp W     &kp E      &kp R   &kp T               VOICE_KEY                                                                    &none     &kp Y     &kp U      &kp I     &kp O     &kp P    &kp BSLH
     &kp ESC     A_LALT    S_LGUI   D_LCTRL    F_LSHFT   &kp G        HSK_LG_LCTRL  &kp LCTRL  &kp LALT                   &kp LGUI  &kp RCTRL  HSK_LG_RCTRL   &kp H   J_RSHFT    K_RCTRL    L_RGUI SEMI_RALT     &kp SQT
   &kp LSHFT      &kp Z     &kp X     &kp C      &kp V   &kp B                                 &kp HOME                  &kp PG_UP                            &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH   &kp RSHFT
 &mo_tog 2 2  &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT                    &kp BSPC    &kp DEL   &kp END                  &kp PG_DN  &kp ENTER     &kp SPACE          &kp DOWN     &kp UP  &kp LBKT  &kp RBKT &mo_tog 2 2
