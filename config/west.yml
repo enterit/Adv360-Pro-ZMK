@@ -9,10 +9,10 @@ manifest:
   projects:
     - name: zmk
       remote: refil
-      revision: adv360-z3.5
+      revision: b0c91d37580565440ab85506d526e0b04c7ac0b2  # adv360-z3.5 tip since 2024-04-15; pinned 2026-10-04
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: main
+      revision: 02a97ab09065025e256d81a4eb6b1c5913002318  # last main before 2024-09-08; has adv360_custom.h (renamed later)
   self:
     path: config
